@@ -1,0 +1,47 @@
+---
+title: "insuranceclaims"
+author: "Christie"
+date: "January 16, 2017"
+output: html_document
+---
+
+# Insurance Claim Fraud
+
+
+
+```{r, echo = FALSE}
+#import source code for Data Science Underground
+source("~/R/dsu.tables.R")
+#functions: 
+##dsu.head
+
+#import data for project
+setwd("C:/Users/c.entwistle/Documents/BP")
+train<-read.table("insurance_fraud_data.txt", sep = ",", header = TRUE)
+test<-read.table("insurance_claim_data.txt", sep = ",", header = TRUE)
+head(train,5)
+```
+
+
+## _Exploratory Data Analysis_
+### Sample Data
+
+Below shows a small sample of the insurance fraud data.
+```{r, echo = FALSE, results = 'asis'}
+dsu.head(train,5)
+
+
+```
+
+
+```{r kable, results = 'asis'}
+kable(head(train, 5), digits = 2, align = c(rep("l", 4), rep("c", 4), rep("r", 4)))
+```
+
+
+```{r star, results = 'asis', warning=FALSE, message=FALSE}
+library(stargazer, quietly = TRUE)
+
+
+stargazer(train, type = 'html')
+```
